@@ -7,7 +7,7 @@ Lint: eslint configured
 
 Logs: configured using elastic search ecs logging, with configured traceId
 
-Monitorig: built in monitoring using prometheus in `/metrics` endpoint
+Monitoring: built in monitoring using prometheus in `/metrics` endpoint
 
 Architecture: this project organization follows [Hexagonal Architecture](https://alistair.cockburn.us/hexagonal-architecture/) pattern
 
