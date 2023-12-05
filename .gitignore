@@ -1,0 +1,9 @@
+.idea
+node_modules
+package-lock.json
+build
+*.sqlite
+*.terraform
+*.terraform.lock.hcl
+*.tfstate.backup
+.DS_Store
