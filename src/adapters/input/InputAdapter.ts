@@ -18,7 +18,7 @@ export class InputAdapter {
 
         const response = await this.service.getById(request.params.id)
 
-        log.info(`GET /api/:id response sent - response: ${response}`)
+        log.info(`GET /api/:id response sent - response: ${JSON.stringify(response)}`)
 
         await reply.code(200).send({ response })
       } catch (err) {
