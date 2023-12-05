@@ -4,14 +4,13 @@ import * as process from 'process'
 import { InputAdapter } from './adapters/input/InputAdapter'
 import { OutputAdapter } from './adapters/output/OutputAdapter'
 import metricsPlugin from 'fastify-metrics'
-import { type ExamplePort } from './app/ports/ExamplePort'
 import { ExampleService } from './app/service/Service'
 import { HealthCheck } from './infrastructure/health'
 
 dotenvConfig()
 
 function initDependencies (): void {
-  const outputAdapter: ExamplePort = new OutputAdapter()
+  const outputAdapter = new OutputAdapter()
   const service = new ExampleService(outputAdapter)
   const restAdapter = new InputAdapter(app, service)
 
