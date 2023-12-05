@@ -1,7 +1,7 @@
 {
   "name": "fastify-rest-api-template",
   "version": "1.0.0",
-  "description": "",
+  "description": "Fastify rest api template with built in configurations to run cloud native",
   "main": "src/index.ts",
   "scripts": {
     "build": "tsc -w",
