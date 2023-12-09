@@ -30,15 +30,21 @@ npm install
 npm run dev
 ```
 
+## Run application
+
+```bash
+npm start
+```
+
+## Run with Docker using docker compose
+
+```bash
+docker compose up
+```
+
 ## Run VSCode Debug
 This project is configured to run in VSCode in folder `.vscode`
 
 To run in Debug in VSCode click on Run -> Start Debugging
 
 Debug configuration is registered as `Launch Program with ts-node`
-
-## Run production
-
-```bash
-npm start
-```
