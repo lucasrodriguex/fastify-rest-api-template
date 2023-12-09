@@ -1,5 +1,5 @@
 # Fastify Boilerplate
-This project contains a template to build Fastify Rest APIs with all configuration
+This project contains a template to build cloud native REST APIs using Fastify with all configuration
 
 Lang: Typescript
 
