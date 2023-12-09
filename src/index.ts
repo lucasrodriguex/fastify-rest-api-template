@@ -3,29 +3,20 @@ import { config as dotenvConfig } from 'dotenv'
 import * as process from 'process'
 import { InputAdapter } from './adapters/input/InputAdapter'
 import { OutputAdapter } from './adapters/output/OutputAdapter'
-import metricsPlugin from 'fastify-metrics'
+
 import { ExampleService } from './app/service/Service'
 import { HealthCheck } from './infrastructure/health'
+import { Swagger } from './infrastructure/swagger'
+import { Metrics } from './infrastructure/metrics'
 
 dotenvConfig()
 
-function initDependencies (): void {
-  const outputAdapter = new OutputAdapter()
-  const service = new ExampleService(outputAdapter)
-  const restAdapter = new InputAdapter(app, service)
-
-  const healthCheck = new HealthCheck(app)
-
-  restAdapter.initializeRoutes()
-  healthCheck.initHealthCheck()
-}
-
 const start = async (): Promise<void> => {
   try {
-    await app.register(metricsPlugin, {
-      endpoint: '/metrics'
-    })
+    initHealthcheck()
+    await initMetrics()
 
+    await initSwagger()
     initDependencies()
 
     await app.ready()
@@ -37,3 +28,26 @@ const start = async (): Promise<void> => {
 }
 
 void start()
+
+function initDependencies (): void {
+  const outputAdapter = new OutputAdapter()
+  const service = new ExampleService(outputAdapter)
+  const restAdapter = new InputAdapter(app, service)
+
+  restAdapter.initializeRoutes()
+}
+
+async function initMetrics (): Promise<void> {
+  const metrics = new Metrics(app)
+  await metrics.initMetrics()
+}
+
+function initHealthcheck (): void {
+  const healthCheck = new HealthCheck(app)
+  healthCheck.initHealthCheck()
+}
+
+async function initSwagger (): Promise<void> {
+  const swagger = new Swagger(app)
+  await swagger.initSwagger()
+}

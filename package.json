@@ -13,6 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "@elastic/ecs-pino-format": "^1.5.0",
+    "@fastify/swagger": "^8.12.1",
+    "@fastify/swagger-ui": "^2.0.1",
     "axios": "^1.6.2",
     "fastify": "^4.24.3",
     "fastify-metrics": "^10.4.1",
