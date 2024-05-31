@@ -1,5 +1,4 @@
-// import axios from 'axios'
-import { type ExamplePort } from '../../app/ports/ExamplePort'
+import { type ExamplePort } from '../../app/domain/ports/examplePort'
 
 export class OutputAdapter implements ExamplePort {
   private readonly url: string

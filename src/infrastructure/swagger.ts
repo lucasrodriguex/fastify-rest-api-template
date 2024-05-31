@@ -1,27 +1,38 @@
-// await app.register(swagger)
-
 import { type FastifyInstance } from 'fastify'
 import swagger from '@fastify/swagger'
 import swaggerUI from '@fastify/swagger-ui'
 
-export class Swagger {
-  private readonly fastify: FastifyInstance
+export const setupSwagger = async (fastify: FastifyInstance): Promise<void> => {
+  await fastify.register(swagger, {
+    openapi: {
+      openapi: '3.0.0',
+      info: {
+        title: 'Example api',
+        description: 'Example API',
+        version: '1.0.0'
+      }
+    }
+  })
 
-  constructor (fastify: FastifyInstance) {
-    this.fastify = fastify
-  }
-
-  async initSwagger (): Promise<void> {
-    await this.fastify.register(swagger)
-
-    await this.fastify.register(swaggerUI, {
-      routePrefix: '/',
-      uiConfig: {
-        docExpansion: 'full',
-        deepLinking: false
+  await fastify.register(swaggerUI, {
+    routePrefix: '/swagger',
+    uiConfig: {
+      docExpansion: 'list',
+      deepLinking: false
+    },
+    uiHooks: {
+      onRequest: function (request, reply, next) {
+        next()
       },
-      staticCSP: true,
-      transformSpecificationClone: true
-    })
-  }
+      preHandler: function (request, reply, next) {
+        next()
+      }
+    },
+    staticCSP: true,
+    transformStaticCSP: (header) => header,
+    transformSpecification: (swaggerObject, request, reply) => {
+      return swaggerObject
+    },
+    transformSpecificationClone: true
+  })
 }
