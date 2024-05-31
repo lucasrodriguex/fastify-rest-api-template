@@ -15,6 +15,8 @@ Healthcheck: health check endpoint is `/health`, feel free to change if you need
 
 Swagger: you can access auto generate swagger in `/` route of application. Feel free to customize Swagger, more details [here](https://github.com/fastify/fastify-swagger)
 
+Tests: Unit and Integration tests examples in `__test__` folder. You can run tests using `npm test`
+
 Dockerfile with distroless image and docker-compose file so you can easily run in any cloud provider
 
 API default PORT is 3000, you can change setting env var API_PORT to other.
@@ -34,6 +36,12 @@ npm run dev
 
 ```bash
 npm start
+```
+
+## Run tests
+
+```bash
+npm test
 ```
 
 ## Run with Docker using docker compose
