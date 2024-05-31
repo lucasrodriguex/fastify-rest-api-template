@@ -13,7 +13,7 @@ Architecture: this project organization follows [Hexagonal Architecture](https:/
 
 Healthcheck: health check endpoint is `/health`, feel free to change if you need to validade some dependency
 
-Swagger: you can access auto generate swagger in `/` route of application. Feel free to customize Swagger, more details [here](https://github.com/fastify/fastify-swagger)
+Swagger: you can access auto generate swagger in `/swagger` route of application. Feel free to customize Swagger, more details [here](https://github.com/fastify/fastify-swagger)
 
 Tests: Unit and Integration tests examples in `__test__` folder. You can run tests using `npm test`
 
