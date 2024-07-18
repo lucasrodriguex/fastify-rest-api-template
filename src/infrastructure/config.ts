@@ -3,20 +3,20 @@ import ecsFormat from '@elastic/ecs-pino-format'
 import { nanoid } from 'nanoid'
 import { AsyncLocalStorage } from 'async_hooks'
 
-const executionContext = new AsyncLocalStorage< string>()
+const executionContext = new AsyncLocalStorage<string>()
 
 const config: FastifyInstance = Fastify({
   logger: {
     ...ecsFormat(),
-    mixin () {
+    mixin() {
       return {
-        'trace.id': executionContext.getStore()
+        'trace.id': executionContext.getStore(),
       }
-    }
+    },
   },
   disableRequestLogging: true,
   genReqId: () => nanoid(10),
-  requestIdLogLabel: 'trace.id'
+  requestIdLogLabel: 'trace.id',
 })
 
 config.addHook('preHandler', (request, _, next) => {

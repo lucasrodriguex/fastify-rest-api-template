@@ -9,16 +9,16 @@ export const setupSwagger = async (fastify: FastifyInstance): Promise<void> => {
       info: {
         title: 'Example api',
         description: 'Example API',
-        version: '1.0.0'
-      }
-    }
+        version: '1.0.0',
+      },
+    },
   })
 
   await fastify.register(swaggerUI, {
     routePrefix: '/swagger',
     uiConfig: {
       docExpansion: 'list',
-      deepLinking: false
+      deepLinking: false,
     },
     uiHooks: {
       onRequest: function (request, reply, next) {
@@ -26,13 +26,13 @@ export const setupSwagger = async (fastify: FastifyInstance): Promise<void> => {
       },
       preHandler: function (request, reply, next) {
         next()
-      }
+      },
     },
     staticCSP: true,
     transformStaticCSP: (header) => header,
     transformSpecification: (swaggerObject, request, reply) => {
       return swaggerObject
     },
-    transformSpecificationClone: true
+    transformSpecificationClone: true,
   })
 }

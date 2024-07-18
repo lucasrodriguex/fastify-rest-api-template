@@ -4,13 +4,13 @@ import metricsPlugin from 'fastify-metrics'
 export class Metrics {
   private readonly fastify: FastifyInstance
 
-  constructor (fastify: FastifyInstance) {
+  constructor(fastify: FastifyInstance) {
     this.fastify = fastify
   }
 
-  async initMetrics (): Promise<void > {
+  async initMetrics(): Promise<void> {
     await this.fastify.register(metricsPlugin, {
-      endpoint: '/metrics'
+      endpoint: '/metrics',
     })
   }
 }

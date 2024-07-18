@@ -10,9 +10,9 @@ export interface GetInputRequest extends FastifyRequest {
 }
 
 export class InputAdapter {
-  constructor (private readonly service: ExampleService) {}
+  constructor(private readonly service: ExampleService) {}
 
-  async processInputRequest (request: GetInputRequest, reply: FastifyReply): Promise<void> {
+  async processInputRequest(request: GetInputRequest, reply: FastifyReply): Promise<void> {
     try {
       log.info(`GET /api/:id request received - id: ${request.params.id}`)
 

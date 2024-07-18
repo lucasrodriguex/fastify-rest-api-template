@@ -28,7 +28,7 @@ const start = async (): Promise<void> => {
 
 void start()
 
-async function initMetrics (): Promise<void> {
+async function initMetrics(): Promise<void> {
   const metrics = new Metrics(app)
   await metrics.initMetrics()
 }

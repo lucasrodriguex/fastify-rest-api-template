@@ -12,6 +12,6 @@ export const inputRoutes = async (fastify: FastifyInstance): Promise<void> => {
   fastify.get('/api/:id', {
     handler: async (request, reply) => {
       await inputAdapter.processInputRequest(request as GetInputRequest, reply)
-    }
+    },
   })
 }

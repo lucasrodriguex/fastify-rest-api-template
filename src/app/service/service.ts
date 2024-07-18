@@ -4,9 +4,9 @@ import { AppError } from '../domain/errors/appError'
 
 // your service class to run business logic and call output ports
 export class ExampleService {
-  constructor (private readonly outputAdapter: ExamplePort) {}
+  constructor(private readonly outputAdapter: ExamplePort) {}
 
-  async getById (id: string): Promise<any> {
+  async getById(id: string): Promise<any> {
     if (id === '') {
       log.error('id is required')
       throw new AppError('id is required', 400)
