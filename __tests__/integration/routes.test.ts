@@ -1,5 +1,5 @@
 import Fastify from 'fastify'
-import { inputRoutes } from '../../src/adapters/routes/inputRoutes'
+import { inputRoutes } from '../../src/adapters/input/routes/inputRoutes'
 
 describe('inputRoutes', () => {
   let fastify: any

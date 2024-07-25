@@ -3,7 +3,7 @@ import { config as dotenvConfig } from 'dotenv'
 import * as process from 'process'
 import { setupSwagger } from './infrastructure/swagger'
 import { Metrics } from './infrastructure/metrics'
-import { inputRoutes } from './adapters/routes/inputRoutes'
+import { inputRoutes } from './adapters/input/routes/inputRoutes'
 
 dotenvConfig()
 

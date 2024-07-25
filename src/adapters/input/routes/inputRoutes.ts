@@ -1,8 +1,8 @@
 import type { FastifyInstance } from 'fastify'
 
-import { OutputAdapter } from '../output/outputAdapter'
-import { ExampleService } from '../../app/service/service'
-import { type GetInputRequest, InputAdapter } from '../input/inputAdapter'
+import { OutputAdapter } from '../../output/outputAdapter'
+import { ExampleService } from '../../../app/service/service'
+import { type GetInputRequest, InputAdapter } from '../inputAdapter'
 
 export const inputRoutes = async (fastify: FastifyInstance): Promise<void> => {
   const outputAdapter = new OutputAdapter()
